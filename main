@@ -2,10 +2,10 @@ import requests
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-news_api_key = 'abc'   #use your own API keys
+news_api_key = "YOUR OWN API KEY" 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
-api_key = '123'
+api_key = "YOUR OWN API KEY" 
 
 news_params = {'apiKey':news_api_key,
  'q':COMPANY_NAME
@@ -27,7 +27,7 @@ difference = abs(float(day_before_yesterday_closing_data)-float(yesterday_closin
 diff_percent = (difference/float(yesterday_closing_data))*100
 
 
-if diff_percent>1:
+if diff_percent>3:
     response = requests.get(url=NEWS_ENDPOINT,params = news_params)
     articles = response.json()['articles']
     top3_articles = articles[:3]
